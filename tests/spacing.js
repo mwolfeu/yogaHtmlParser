@@ -35,7 +35,7 @@ let allTests = [marginTests];
 allTests.forEach(d => {
   d.forEach((e, i) => {
     console.log('\nTEST:', i);
-    let yhp = new yogaHTMLParser.yogaHTMLParser();
+    let yhp = new yogaHTMLParser();
     yhp.parse(e, (node, layout, userData) => {
       console.log('IDX', userData.idx)
       console.log(layout);
@@ -43,7 +43,7 @@ allTests.forEach(d => {
   })
 })
 
-let yhp = new yogaHTMLParser.yogaHTMLParser();
+let yhp = new yogaHTMLParser();
 yhp.parse(marginTests[0])
 let { layout, userData } = yhp.getById('test')
 console.log('\nbyID Test:', layout, userData.idx);

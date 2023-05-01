@@ -306,4 +306,4 @@ class yogaHTMLParser {
 // draw boxes
 // submit to NPM
 
-module.exports = { yogaHTMLParser };
+module.exports = yogaHTMLParser;
