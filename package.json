@@ -1,0 +1,31 @@
+{
+  "name": "yoga-html-parser",
+  "version": "1.0.0",
+  "description": "Parse a subset of a real HTML string into a Yoga object.",
+  "main": "src/yoga-parse.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "yoga-layout-prebuilt": "^1.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwolfeu/yogaHtmlParser.git"
+  },
+  "keywords": [
+    "yoga",
+    "html"
+  ],
+  "author": "Michael Wolf",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/mwolfeu/yogaHtmlParser/issues"
+  },
+  "homepage": "https://github.com/mwolfeu/yogaHtmlParser#readme"
+}
