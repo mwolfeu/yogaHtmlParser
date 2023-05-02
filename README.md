@@ -9,7 +9,7 @@ Note: Use border-width instead of border
 
 ## Usage
 
-npm i yogaHtmlParser
+npm i yoga-html-parser
 
 ### Add to your node project:
 
