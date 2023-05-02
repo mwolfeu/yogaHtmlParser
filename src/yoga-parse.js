@@ -1,6 +1,7 @@
 const cheerio = require('cheerio');
 const yoga = require('yoga-layout-prebuilt');
-const enums = require('../node_modules/yoga-layout-prebuilt/yoga-layout/dist/YGEnums.js');
+// from ../node_modules/yoga-layout-prebuilt/yoga-layout/dist/YGEnums.js
+const enums = require('./YGEnums.js');
 
 // yoga-wasm-web
 
