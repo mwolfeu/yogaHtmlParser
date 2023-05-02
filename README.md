@@ -13,9 +13,9 @@ npm i yogaHtmlParser
 
 ### Add to your node project:
 
-const yogaHTMLParser = require('../src/yoga-parse.js');
+const yogaHTMLParser = require('yoga-html-parser.js');
 
-let yhp = new yogaHTMLParser.yogaHTMLParser();
+let yhp = new yogaHTMLParser();
 
 ## API
 
