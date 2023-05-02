@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Box drawing test</title>
+</head>
+
+<body>
+    <div style="right:0px; position:absolute;">
+        <span>Enter an array of layout objects below to display them:</span>
+        <br>
+        <textarea id="textArea" rows="10" cols="50"></textarea>
+        <br>
+        <button onclick="convertJSON()">Display Layout</button>
+    </div>
+
+    <script>
+        var example = `
+  [
+      {
+            left : 0,
+            right : 0,
+            top : 0,
+            bottom : 0,
+            width : 500,
+            height : 500
+      },
+      {
+            left : 0,
+            right : 0,
+            top : 100,
+            bottom : 0,
+            width : 100,
+            height : 100
+      },
+      {
+            left : 0,
+            right : 0,
+            top : 200,
+            bottom : 0,
+            width : 100,
+            height : 100
+      },
+      {
+            left : 0,
+            right : 0,
+            top : 300,
+            bottom : 0,
+            width : 100,
+            height : 100
+      }
+  ]
+  `
+        const preloadedText = example;
+        const textarea = document.getElementById("textArea");
+        textarea.value = preloadedText;
+
+        // accounts for newlines after key value pairs and nonquoted keys.
+        function preparseJSON(jsonString) {
+            // wrap keys with double quotes
+            const fixedJSONString = jsonString.replace(/([{,]\s*)(\w+?)\s*:/g, '$1"$2":');
+            // remove newlines
+            const noNewlinesJSONString = fixedJSONString.replace(/(\r\n|\n|\r)/gm, "");
+            const parsedJSON = JSON.parse(noNewlinesJSONString);
+            return parsedJSON;
+        }
+
+        function convertJSON() {
+            var myTextArea = document.getElementById("textArea");
+            var text = myTextArea.value;
+            console.log(text);
+            console.log(preparseJSON(text));
+            var data = preparseJSON(text);
+
+            // Define data
+            const ddata = [{
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0,
+                width: 500,
+                height: 500
+            }, {
+                left: 0,
+                right: 0,
+                top: 100,
+                bottom: 0,
+                width: 100,
+                height: 100
+            }, {
+                left: 0,
+                right: 0,
+                top: 200,
+                bottom: 0,
+                width: 100,
+                height: 100
+            }, {
+                left: 0,
+                right: 0,
+                top: 300,
+                bottom: 0,
+                width: 100,
+                height: 100
+            }];
+
+            // Create divs with centered index numbers
+            data.forEach((item, i) => {
+                const div = document.createElement('div');
+                div.style.position = 'absolute';
+                div.style.border = '1px solid black';
+                div.style.display = 'flex';
+                div.style.justifyContent = 'center';
+                div.style.alignItems = 'center';
+                div.style.left = `${item.left}px`;
+                div.style.right = `${item.right}px`;
+                div.style.top = `${item.top}px`;
+                div.style.bottom = `${item.bottom}px`;
+                div.style.width = `${item.width}px`;
+                div.style.height = `${item.height}px`;
+                div.innerText = i;
+                document.body.appendChild(div);
+            });
+        }
+    </script>
+</body>
+
+</html>
