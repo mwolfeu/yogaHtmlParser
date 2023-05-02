@@ -13,7 +13,7 @@ npm i yogaHtmlParser
 
 ### Add to your node project:
 
-const yogaHTMLParser = require('yoga-html-parser.js');
+const yogaHTMLParser = require('yoga-html-parser');
 
 let yhp = new yogaHTMLParser();
 
