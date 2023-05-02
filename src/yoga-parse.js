@@ -98,7 +98,11 @@ class yogaHTMLParser {
     const key = rule[0];
     const values = rule[1].split(' ');
 
-    if (/^(border|margin|padding)/.test(key)) {
+    // if not decomposable then throw an error
+    if (/^(?!border-width$|margin$|padding$)/.test(key) && values.length > 1)
+      throw new Error(`Cannot decompose compound rule.: ${rule}`);
+
+    if (/^(border-width|margin|padding)/.test(key)) {
       switch (values.length) {
         case 1:
           return [rule];
@@ -256,7 +260,7 @@ class yogaHTMLParser {
    * @returns {Object} - An object containing the layout information for the root node.
    **/
   getCalculatedLayout(node = this.yogaRootNode) {
-    node.calculateLayout();
+    // node.calculateLayout();
     return node.getComputedLayout();
   }
 
@@ -270,6 +274,7 @@ class yogaHTMLParser {
    */
   getNodes(callback, node = this.yogaRootNode) {
     const childCount = node.getChildCount();
+    this.yogaRootNode.calculateLayout();
     if (callback) callback(node, this.getCalculatedLayout(node), this.getUserData(node));
 
     for (let i = 0; i < childCount; i++) {
@@ -293,6 +298,7 @@ class yogaHTMLParser {
 
   getById(query) {
     let htmlEl = this.$('#' + query).get(0);
+    this.yogaRootNode.calculateLayout();
     if (htmlEl)
       return { layout: this.getCalculatedLayout(htmlEl.yogaNode), userData: this.getUserData(htmlEl.yogaNode) }
     return { layout: undefined, userData: undefined };
@@ -300,9 +306,6 @@ class yogaHTMLParser {
 }
 
 // TODO 
-// order proj dirs 
-// github
-// make tests
 // draw boxes
 // submit to NPM
 

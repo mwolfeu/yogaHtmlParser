@@ -1,5 +1,11 @@
 # yogaHtmlParser
-A Node library that takes an HTML string and parses/decomposes css rules and returns the layout.
+A Node library that takes an HTML string and parses/decomposes css rules and returns the layout. 
+
+Note: The flex library does not handle compound css rules.  In general, stick to "one rule one argument" forms.  That said, for margin, border-width, and padding the 2, 3, and 4 argument versions are parsable.  
+
+Note: Yoga can only use px and % units.
+
+Note: Use border-width instead of border
 
 ## Usage
 
